@@ -3,7 +3,7 @@ const MongoDB = require('./db/strategies/mongodb/mongodb')
 const Context = require('./db/strategies/base/contextStrategy')
 const HeroiSchema = require('./db/strategies/mongodb/schemas/heroisSchema')
 const app = new Hapi.Server({
-    port: 5000
+  port: 5000
 })
 
 async function main() {
@@ -11,11 +11,11 @@ async function main() {
   const context = new Context(new MongoDB(connection, HeroiSchema))
   app.route([
     {
-        path: '/herois',
-        method: 'GET',
-        handler: (request, head) => {
-            return context.read()
-        }
+      path: '/herois',
+      method: 'GET',
+      handler: (request, head) => {
+        return context.read()
+      }
     }
   ])
 
