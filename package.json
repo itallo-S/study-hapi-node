@@ -10,8 +10,8 @@
     "start": "node ./src/api.js",
     "start:prod": "cross-env NODE_ENV=prod && npm run start",
     "start:dev": "cross-env NODE_ENV=dev && npm run start",
-    "prod": "cross-env NODE_ENV=prod node ./src/api.js",
-    "dev": "cross-env NODE_ENV=dev node ./src/api.js"
+    "prod": "cross-env NODE_ENV=prod && node ./src/api.js",
+    "dev": "cross-env NODE_ENV=dev && node ./src/api.js"
   },
   "keywords": [],
   "author": "",
