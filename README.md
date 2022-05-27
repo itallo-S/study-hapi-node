@@ -29,3 +29,14 @@ docker exec -it <id do mongo para conectar> mongo -u admin -p senhaadmin
 
 ### remove todos os containers (inativos ou ativos)
 - docker rm $(docker ps -aq)
+
+### heroku
+- heroku login
+
+- heroku apps:list
+
+- heroku apps:create cursoimersaonode
+
+- heroku git:remote --app cursoimersaonode
+
+- heroku logs
