@@ -1,0 +1,40 @@
+{
+  "name": "07-multi-db",
+  "version": "1.0.0",
+  "description": "// Mostra os processos que estão em execução - docker ps",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha src/tests/*.js -w",
+    "test:dev": "cross-env NODE_ENV=dev npm t",
+    "test:prod": "cross-env NODE_ENV=prod npm t",
+    "start": "node ./src/api.js",
+    "start:prod": "cross-env NODE_ENV=prod && npm run start",
+    "start:dev": "cross-env NODE_ENV=dev && npm run start",
+    "prod": "cross-env NODE_ENV=prod node api.js",
+    "dev": "cross-env NODE_ENV=dev node api.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/inert": "^6.0.5",
+    "@hapi/vision": "^6.1.0",
+    "bcrypt": "^5.0.1",
+    "boom": "^7.3.0",
+    "dotenv": "^16.0.1",
+    "hapi": "^18.1.0",
+    "hapi-auth-jwt2": "^10.2.0",
+    "hapi-swagger": "^14.5.1",
+    "inert": "^5.1.3",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.18.0",
+    "vision": "^5.4.4"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.2"
+  }
+}
