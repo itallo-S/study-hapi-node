@@ -40,7 +40,9 @@ class AuthRoutes extends BaseRoute {
                 }
             },
             handler: async (request, headers) => {
-                const {username, password} = request.payload
+                const {username, password} = request.payload.value
+
+                console.log(request.payload)
 
                 const [usuario] = await this.db.read({
                     username: username.toLowerCase()
