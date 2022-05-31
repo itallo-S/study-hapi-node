@@ -8,7 +8,7 @@
     "test": "mocha --timeout 20000 src/tests/*.js -w",
     "test:dev": "cross-env NODE_ENV=dev npm t",
     "test:prod": "cross-env NODE_ENV=production npm t",
-    "start": "pm2-runtime ./src/api.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "start:prod": "cross-env NODE_ENV=prod && npm run start",
     "start:dev": "cross-env NODE_ENV=dev && npm run start",
     "prod": "cross-env NODE_ENV=production && node ./src/api.js",
