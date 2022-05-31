@@ -14,21 +14,24 @@ const USER_DB = {
     password: '$2b$04$bdAmBPsCobJtHKt.JkZMOOkuTXlqDjvFzz5jUzJ4K1DmEmHHGGOCG'
 }
 let connection = ''
-
+let userCreated = ''
 describe('Auth test suite', function () {
     this.beforeAll(async () => {
         app = await api
         const connectionPostgres = await Postgres.connect()
         const model = await Postgres.defineModel(connectionPostgres, UserSchema)
         connection = new Context(new Postgres(connectionPostgres, model))
-        await connection.update(null, USER_DB, true)
+        userCreated = await connection.update(null, USER_DB, true)
+    })
+    this.afterAll(async () => {
+        await connection.delete()
     })
 
     it('deve obter um token', async () => {
         const result = await app.inject({
             method: 'POST',
             url: '/login',
-            payload: USER,
+            payload: {username: 'Xuxadasilva', password: '123'},
         })
         const statusCode = result.statusCode
         const dados = JSON.parse(result.payload)

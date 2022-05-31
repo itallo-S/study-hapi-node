@@ -33,13 +33,13 @@ class Postgres extends ICrud {
             {
                 quoteIdentifiers: false,
                 operatorsAliases: false,
-                logging: false,
-                dialectOptions: {
-                    ssl:{
-                        require: process.env.SSL_DB,
-                        rejectUnauthorized: false,
-                    }
-                }
+                logging: false,                
+                // dialectOptions: {
+                //     ssl: {
+                //         require: process.env.SSL_DB,
+                //         rejectUnauthorized: false,
+                //     }
+                // }
             })
         return connection
     }
@@ -55,7 +55,7 @@ class Postgres extends ICrud {
 
     async update(id, item, upsert = false) {
         const fn = upsert ? 'upsert' : 'update'
-        return this._schema.update(item, {where: {id: id}, raw: true})
+        return this._schema[fn](item, {where: {id: id}, raw: true})
     }
     async delete(id) {
         const query = id ?  {id} : {}
